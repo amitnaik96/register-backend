@@ -28,7 +28,7 @@ pipeline {
         script {
           bat '''
             set PATH=%NODE_HOME%
-            %SONARQUBE_SCANNER% -Dsonar.projectKey=jenkins-pipeline ^
+            %SONARQUBE_SCANNER% -Dsonar.projectKey=register-backend ^
             -Dsonar.sources=. ^
             -Dsonar.host.url=http://localhost:9000 ^
             -Dsonar.login=%SONAR_TOKEN%
