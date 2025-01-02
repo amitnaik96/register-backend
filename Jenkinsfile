@@ -26,14 +26,14 @@ pipeline {
       }
       steps {
         script {
-          bat '''
-            set PATH=%NODE_PATH%
-            %SONAR_SCANNER_PATH% -Dsonar.projectKey=register-backend ^
-            -Dsonar.sources=. ^
-            -Dsonar.host.url=http://localhost:9000 ^
-            -Dsonar.login=%SONAR_TOKEN%
-          '''
-        }
+                bat '''
+                    set PATH=%NODE_PATH%;%SONAR_SCANNER_PATH%;%PATH%
+                    "%SONAR_SCANNER_PATH%/sonar-scanner.bat" -Dsonar.projectKey=register-backend ^
+                    -Dsonar.sources=. ^
+                    -Dsonar.host.url=http://localhost:9000 ^
+                    -Dsonar.login=%SONAR_TOKEN%
+                '''
+            }
       }
     }
   }
